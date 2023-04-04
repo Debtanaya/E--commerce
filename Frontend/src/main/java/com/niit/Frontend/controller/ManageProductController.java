@@ -103,7 +103,10 @@ public class ManageProductController
 		{
 			
 			if(p.getId() == 0)
+			{
+				p.setActive(true);
 				productDAO.insert(p);
+			}
 			else
 				productDAO.update(p);
 			
@@ -144,7 +147,7 @@ public class ManageProductController
 		return new Category();
 	}
 	
-	@RequestMapping(value = "/product/{id}/activation", method=RequestMethod.POST)
+	@RequestMapping(value = "/product/{id}/activation", method= {RequestMethod.POST})
 	@ResponseBody
 	public String handleProductAvtivation(@PathVariable int id)
 	{
