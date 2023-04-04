@@ -2,8 +2,9 @@ package com.niit.Backend.DAOIMPL;
 
 import java.util.List;
 
-import org.hibernate.Query;
+
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,6 +35,7 @@ public class UserDAOIMPL implements UserDAO
 	}
 
 
+	@SuppressWarnings("deprecation")
 	public User getUser(String email) 
 	{
 	

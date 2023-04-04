@@ -19,6 +19,13 @@ import org.hibernate.validator.constraints.NotBlank;
 @Table(name="Niit_Jadavpur_User")
 public class User implements Serializable
 {
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", contactNumber=" + contactNumber + ", role=" + role + ", password=" + password
+				+ ", confirmPassword=" + confirmPassword + ", enabled=" + enabled + ", cart=" + cart + "]";
+	}
+
 	/**
 	 * 
 	 */

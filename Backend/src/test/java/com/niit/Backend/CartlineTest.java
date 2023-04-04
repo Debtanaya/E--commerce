@@ -35,7 +35,7 @@ public class CartlineTest
 	@Test
 	public void testInsert()
 	{
-		product = productDAO.getProduct(3);
+		product = productDAO.getProduct(33);
 		
 		cartlines = new CartLines();
 		
