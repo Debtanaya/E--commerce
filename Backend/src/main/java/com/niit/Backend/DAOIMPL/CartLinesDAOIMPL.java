@@ -88,5 +88,23 @@ public class CartLinesDAOIMPL implements CartLinesDAO
 										.getResultList();
 	}
 	
+	@Override
+	public CartLines getByCartAndProduct(int cartId, int productId) {
+		String query = "FROM CartLines WHERE cartId = :cartId AND product.id = :productId";
+		try {
+			
+			return sessionFactory.getCurrentSession()
+									.createQuery(query,CartLines.class)
+										.setParameter("cartId", cartId)
+										.setParameter("productId", productId)
+											.getSingleResult();
+			
+		}
+		catch(Exception ex) 
+		{
+			return null;	
+		}
+		
+	}
 	
 }
