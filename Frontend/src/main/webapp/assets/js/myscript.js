@@ -243,5 +243,30 @@ $(function()
 
 				});
 	}
+	
+	
+	
+
+	
+	$('button[name="refreshCart"]').click(function()
+			{
+		var cartLineId = $(this).attr('value');
+		
+		var countField = $('#count_' + cartLineId);
+		
+		var originalCount = countField.attr('value');
+		
+
+		var updatedCount = countField.val();
+		
+		if(updatedCount != originalCount) 
+		{	
+			
+				
+				var updateUrl = window.contextRoot + '/cart/' + cartLineId + '/update?count=' + updatedCount;
+				window.location.href = updateUrl;
+			
+		}
+		});
 
 });

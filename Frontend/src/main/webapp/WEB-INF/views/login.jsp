@@ -55,6 +55,20 @@
 		<div class="content">
 
 			<div class="container">
+				<c:if test="${not empty message}">
+					<div class="row">
+						<div class="col-md-offset-3 col-md-6">
+							<div class="alert alert-danger fade-in">${message}</div>
+						</div>
+					</div>
+				</c:if>
+				<c:if test="${not empty logout}">
+					<div class="row">
+						<div class="col-md-offset-3 col-md-6">
+							<div class="alert alert-success fade-in">${logout}</div>
+						</div>
+					</div>
+				</c:if>
 				<div class="row">
 
 					<div class="col-md-offset-3 col-md-6">
@@ -87,9 +101,9 @@
 									</div>
 									<div class="form-group">
 										<div class="col-md-offset-4 col-md-8">
-										<input type="hidden" name="${_csrf.parameterName}"
-												value="${_csrf.token}" />
-											<input type="submit" value="Login" class="btn btn-primary" />
+											<input type="hidden" name="${_csrf.parameterName}"
+												value="${_csrf.token}" /> <input type="submit"
+												value="Login" class="btn btn-primary" />
 										</div>
 									</div>
 								</form>

@@ -36,10 +36,25 @@ public class CartController
 					case "added":
 						mv.addObject("message", "CartLine has been successfully added!");
 						break;
+					case "deleted":
+						mv.addObject("message", "CartLine has been successfully removed!");
+						break;
+					case "updated":
+						mv.addObject("message", "CartLine has been successfully updated!");
+						break;
+					case "maxcountreach":
+						mv.addObject("message", "Quantity Cannot be greater than the available product quantity!");
+						break;
+					case "mincountreach":
+						mv.addObject("message", "Quantity Cannot be less than 1!");
+						break;
+					case "modified":
+						mv.addObject("message", "One or more items inside cart has been modified!");
+						break;
 				}
 		}
 		
-		mv.addObject("cartlines" , cartlinesDAO.listAvailable(37) );
+		mv.addObject("cartlines" , cartlinesService.getCartLines() );
 		return mv;
 	}
 	
@@ -52,5 +67,31 @@ public class CartController
 		return "redirect:/cart/show?"+result;
 	}
 	
+	@RequestMapping("/{cartLineId}/remove")
+	public String removeCartLine(@PathVariable int cartLineId) {
+		String response = cartlinesService.removeCartLine(cartLineId);
+		return "redirect:/cart/show?"+response;
+	}
+	
+	@RequestMapping("/{cartLineId}/update")
+	public String updateCartLine(@PathVariable int cartLineId , @RequestParam(name = "count", required = false) int count) {
+		String response = cartlinesService.updateCartLine(cartLineId , count);
+		return "redirect:/cart/show?"+response;
+	}
+	
+	@RequestMapping("/validate")
+	public String validateCart() 
+	{
+		String response = cartlinesService.validateCartLine();
+		
+		if(!response.equals("result=success"))
+		{
+			return "redirect:/cart/show?"+response;
+		}
+		else 
+		{
+			return "redirect:/cart/checkout";
+		}
+	}
 	
 }
