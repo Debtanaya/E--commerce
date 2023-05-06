@@ -34,8 +34,6 @@ public class UserDAOIMPL implements UserDAO
 		}
 	}
 
-
-	@SuppressWarnings("deprecation")
 	public User getUser(String email) 
 	{
 	
@@ -94,6 +92,68 @@ public class UserDAOIMPL implements UserDAO
 			return false;
 		}
 	}
+	
+	public List<Address> getShippingAddress(int id) 
+	{
+		try
+		{
+			String selectuser = "FROM Address WHERE userId = :userID and shipping = :shipping";
+			
+			Query query = sessionFactory.getCurrentSession().createQuery(selectuser);
+					
+			query.setParameter("userID", id);
+			query.setParameter("shipping", true);
+							
+			return query.getResultList();
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return null;
+		}
+	}
+	public Address getBillingAddress(int id) 
+	{
+		try
+		{
+			String selectuser = "FROM Address WHERE userId = :userID and billing = :billing";
+			
+			Query query = sessionFactory.getCurrentSession().createQuery(selectuser);
+					
+			query.setParameter("userID", id);
+			query.setParameter("billing", true);
+							
+			return (Address) query.getSingleResult();
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public Address getAddress(int addressid) 
+	{
+		try
+		{
+			String selectuser = "FROM Address WHERE id = :addressID";
+			
+			Query query = sessionFactory.getCurrentSession().createQuery(selectuser);
+					
+			query.setParameter("addressID", addressid);
+							
+			return (Address) query.getSingleResult();
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 
 
 }
