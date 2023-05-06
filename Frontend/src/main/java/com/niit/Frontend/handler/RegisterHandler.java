@@ -33,7 +33,7 @@ public class RegisterHandler
 	public String saveAll(RegisterModel registerModel) 
 	{
 		User user = registerModel.getUser();
-		
+		user.setEnabled(true);
 		
 		if (user.getRole().equals("USER")) {
 			Cart cart = new Cart();
