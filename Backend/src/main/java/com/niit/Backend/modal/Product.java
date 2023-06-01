@@ -63,8 +63,21 @@ public class Product implements Serializable
 	@Transient
 	private MultipartFile file;
 
-
+	@Column(name = "purchase_count")
+	private int purchases;
 	
+	public int getPurchases() 
+	{
+		return purchases;
+	}
+
+	public void setPurchases(int purchases) 
+	{
+		this.purchases = purchases;
+	}
+
+
+
 	public Product() 
 	{	
 		code = "PRD" + UUID.randomUUID().toString().substring(24);

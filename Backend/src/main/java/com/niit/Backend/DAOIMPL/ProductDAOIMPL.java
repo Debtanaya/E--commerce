@@ -22,7 +22,7 @@ public class ProductDAOIMPL implements ProductDAO
 	public boolean insert(Product product) 
 	{
 		try {
-			product.setActive(true);
+			//product.setActive(true);
 			sessionFactory.getCurrentSession().persist(product);
 			return true;
 		} catch (Exception e) {
@@ -83,6 +83,18 @@ public class ProductDAOIMPL implements ProductDAO
 		String selectActiveCategory = "FROM Product";
 		Query query = sessionFactory.getCurrentSession().createQuery(selectActiveCategory);						
 		return query.getResultList();
+	}
+	@Override
+	public List<Product> topPurchasedProduct() 
+	{
+		String query = "FROM Product WHERE active = true ORDER BY purchases DESC";
+		
+		return sessionFactory
+					.getCurrentSession()
+					.createQuery(query,Product.class)
+					.setFirstResult(0)
+					.setMaxResults(2)
+					.getResultList();
 	}
 
 }

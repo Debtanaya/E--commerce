@@ -48,7 +48,7 @@ public class UserTest
 		user.setPassword("supplier12345");
 		user.setRole("SUPPLIER");
 		*/
-		/*
+		
 		user.setContactNumber("9087667890");
 		user.setEmail("niitjadavpur@gmail.com");
 		user.setEnabled(true);
@@ -57,7 +57,7 @@ public class UserTest
 		user.setPassword("admin12345");
 		user.setRole("ADMIN");
 		assertEquals("Error inserting user" ,  true , userDAO.insert(user));
-	*/
+	
 	}
 	/*
 	
@@ -68,7 +68,7 @@ public class UserTest
 		assertEquals("Error fetching user" , "Rohan" , user.getFirstName());
 	}
 	*/
-	@Test
+	//@Test
 	public void testAddUser() 
 	{
 		

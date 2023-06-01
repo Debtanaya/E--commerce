@@ -2,7 +2,6 @@ package com.niit.Backend.DAOIMPL;
 
 import java.util.List;
 
-
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,6 +75,7 @@ public class UserDAOIMPL implements UserDAO
 			return null;
 		}
 	}
+	
 
 
 	@Override
