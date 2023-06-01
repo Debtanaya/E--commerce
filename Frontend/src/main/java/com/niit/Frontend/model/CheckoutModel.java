@@ -6,6 +6,7 @@ import java.util.List;
 import com.niit.Backend.modal.Address;
 import com.niit.Backend.modal.Cart;
 import com.niit.Backend.modal.CartLines;
+import com.niit.Backend.modal.OrderDetails;
 import com.niit.Backend.modal.User;
 
 public class CheckoutModel implements Serializable
@@ -17,8 +18,18 @@ public class CheckoutModel implements Serializable
 	private Cart cart;
 	private List<CartLines> cartLines;
 	private double checkoutTotal;
+	
+	private OrderDetails orderDetails;
 
 	
+	public OrderDetails getOrderDetails() {
+		return orderDetails;
+	}
+
+	public void setOrderDetails(OrderDetails orderDetails) {
+		this.orderDetails = orderDetails;
+	}
+
 	public Cart getCart() {
 		return cart;
 	}

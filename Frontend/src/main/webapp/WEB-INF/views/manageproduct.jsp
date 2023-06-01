@@ -117,7 +117,7 @@
 							<sf:hidden path="id" />
 							<sf:hidden path="code" />
 							<sf:hidden path="active" />
-
+							<sf:hidden path="purchases" />
 							<div class="offset-md-4 col-md-8">
 								<input type="submit" name="submit" id="submit" value="submit"
 									class="btn btn-primary btn-lg" />
